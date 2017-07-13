@@ -30,7 +30,6 @@ namespace PASABAHCE_URETIM_TAKIP.ProductionWorkPlan
             #endregion
             var systemCode = Global.SYSTEM_CODE;
             var ws = new PASABAHCE_WEB_SERVICE();
-
             #region checkIfLoggedIn
             errMsg = "";
             var userInfo = new CLS_USER_INFO();
@@ -43,7 +42,6 @@ namespace PASABAHCE_URETIM_TAKIP.ProductionWorkPlan
                 Response.Redirect("~/Account/LoginForm.aspx", true);
                 return;
             }
-
             int PAGE_ID;
             string PAGE_NAME = "ProductionWorkPlanList";
             pasabahce.CLS_PAGES[] PAGES_LIST = null;
@@ -60,7 +58,6 @@ namespace PASABAHCE_URETIM_TAKIP.ProductionWorkPlan
                 Response.Redirect("/Permission.aspx", true);
                 return;
             }
-
             #endregion
             pasabahce.CLS_LANG_TEXT[] TEXT = null;
             ret = ws.getLangText(webConfig.SQLServerConnectionString, userInfo, userInfo.LANG, ref TEXT, ref errMsg);
@@ -73,7 +70,6 @@ namespace PASABAHCE_URETIM_TAKIP.ProductionWorkPlan
                 Response.Redirect("Information.aspx");
                 return;
             }
-
             #region taslak files
             errMsg = "";
             var html_taslak = "";
@@ -102,12 +98,10 @@ namespace PASABAHCE_URETIM_TAKIP.ProductionWorkPlan
             var html_taslak_content = "";
             ret = FileUtils.getFile(webConfig.WebRootPath, "Pages/Views/ProductionWorkPlan/ProductionWorkPlanList.html",
                 ref html_taslak_content, ref errMsg);
-
             if (ret < 0) {
                 MessageUtils.sendInformationMessage(Session, Response, errMsg);
                 return;
             }
-
             #endregion
             html_taslak = html_taslak.Replace("<!--[!USER_NAME!]-->", userInfo.USER_NAME + "&nbsp;&nbsp;&nbsp;");
             PageContentHelper.prepareMenuBar(userInfo, ref html_taslak_menu_bar);
@@ -133,7 +127,6 @@ namespace PASABAHCE_URETIM_TAKIP.ProductionWorkPlan
             //CMS---
             Response.Write(html);
         }
-
         public string getFormDataString(string s) {
             if (s == null){
                 return ("");
@@ -142,8 +135,7 @@ namespace PASABAHCE_URETIM_TAKIP.ProductionWorkPlan
                 return ("");
             }
             return (s);
-        }
-        public string getFormDataStringWithEliminateZero(string s){
+        }        public string getFormDataStringWithEliminateZero(string s){
             var ss = getFormDataString(s);
             if (ss == "0") {
                 return ("");
@@ -154,12 +146,10 @@ namespace PASABAHCE_URETIM_TAKIP.ProductionWorkPlan
             Response.Write("<gns><status>" + status + "</status><msg>" + msg + "</msg>" + xmlResponse + "</gns>");
         }
         public void sendError(int status, string msg, string detailed_msg){
-            Response.Write("<gns><status>" + status + "</status><msg>" + msg + "</msg><detailed_msg>" + detailed_msg +
-                           "</detailed_msg></gns>");
+            Response.Write("<gns><status>" + status + "</status><msg>" + msg + "</msg><detailed_msg>" + detailed_msg + "</detailed_msg></gns>");
         }
 
-        public void sendSuccess()
-        {
+        public void sendSuccess() {
             Response.Write("<gns><status>0</status><msg>OK</msg><detailed_msg>OK</detailed_msg></gns>");
         }
         [WebMethod(EnableSession = true)]

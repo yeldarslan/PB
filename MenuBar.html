@@ -1,0 +1,326 @@
+<script type="text/javascript">
+    var page_id_numbers=null;
+        $.ajax({
+        type: "POST",
+        url: "/HomePage.aspx/Menus",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        data: JSON.stringify({}),
+        success: function (data) {
+            page_id_numbers = data.d;
+         }
+        });
+        var menuNumbersList = [35, 29, 96, 32, 20, 98, 80, 70, 87, 68, 93, 105, 57, 55, 65, 19, 24, 60, 13, 77, 78, 79, 46, 49, 26, 61, 7, 62, 1, 43, 22, 86, 104, 103, 100, 101, 102, 53];
+        function select() {
+            for (var i = 0; i < page_id_numbers.length; i++) {
+                for (var j = 0; j < menuNumbersList.length; j++) {
+                    if (page_id_numbers[i] == menuNumbersList[j]) {
+                        document.getElementById(page_id_numbers[i]).style.display = 'block';
+                    }
+                }
+            }
+        }
+    //Üretim Sistemi
+        var uretimSistemiTanimList = [35, 29, 96, 32, 20, 98, 101];
+     var uretimSistemiGirisList = [80, 70, 87, 68, 93, 105, 57, 55, 65, 19, 24, 60, 53];
+     var uretimSistemiEtiketList = [13];
+     var uretimSistemiUretimRaporList = [77, 78, 79];
+     35
+     function uretimSistemi() {
+         for (var i = 0; i < page_id_numbers.length; i++) {
+             for (var j = 0; j < uretimSistemiTanimList.length; j++) {
+                 if (page_id_numbers[i] == uretimSistemiTanimList[j]) {
+                     document.getElementById("uretimSistemiTanim").style.display = 'block';
+                     }
+             }
+         }
+         for (var i = 0; i < page_id_numbers.length; i++) {
+             for (var j = 0; j < uretimSistemiGirisList.length; j++) {
+                 if (page_id_numbers[i] == uretimSistemiGirisList[j]) {
+                     document.getElementById("uretimSistemiGiris").style.display = 'block';
+                 }
+             }
+         }
+         for (var i = 0; i < page_id_numbers.length; i++) {
+             for (var j = 0; j < uretimSistemiEtiketList.length; j++) {
+                 if (page_id_numbers[i] == uretimSistemiEtiketList[j]) {
+                     document.getElementById("uretimSistemiEtiket").style.display = 'block';
+                 }
+
+             }
+         }
+         for (var i = 0; i < page_id_numbers.length; i++) {
+             for (var j = 0; j < uretimSistemiUretimRaporList.length; j++) {
+                 if (page_id_numbers[i] == uretimSistemiUretimRaporList[j]) {
+                     document.getElementById("uretimSistemiUretimRapor").style.display = 'block';
+                 }
+
+             }
+         }
+     }
+// Üretim Kayıpları
+     var uretimKayiplariTanimList = [46, 49, 26];
+     var uretimKayiplariGirisList = [61, 7, 62, 1, 43, 22];
+     var uretimKayiplariKaliteRaporList = [86];
+     var uretimKayiplariDurusRaporList = [104, 103, 100, 101, 102];
+     
+     function uretimKayiplari() {
+         for (var i = 0; i < page_id_numbers.length; i++) {
+             for (var j = 0; j < uretimKayiplariTanimList.length; j++) {
+                     if (page_id_numbers[i] == uretimKayiplariTanimList[j]) {
+                     document.getElementById("uretimKayiplariTanim").style.display = 'block';
+                 }
+
+             }
+         }
+         for (var i = 0; i < page_id_numbers.length; i++) {
+              for (var j = 0; j < uretimKayiplariTanimList.length; j++) {
+                 if (page_id_numbers[i] == uretimKayiplariGirisList[j]) {
+                     document.getElementById("uretimKayiplariGiris").style.display = 'block';
+                   }
+             }
+        }
+        for (var i = 0; i < page_id_numbers.length; i++) {
+            for (var j = 0; j < uretimKayiplariKaliteRaporList.length; j++) {
+                if (page_id_numbers[i] == uretimKayiplariKaliteRaporList[j]) {
+                    document.getElementById("uretimKayiplariKaliteRapor").style.display = 'block';
+                }
+
+            }
+        }
+
+        for (var i = 0; i < page_id_numbers.length; i++) {
+            for (var j = 0; j < uretimKayiplariDurusRaporList.length; j++) {
+                if (page_id_numbers[i] == uretimKayiplariDurusRaporList[j]) {
+                    document.getElementById("uretimKayiplariDurusRapor").style.display = 'block';
+                }
+
+            }
+        }
+     }
+</script>
+<!-- position: absolute; -->
+
+
+<style>
+ .menus
+{
+ position: relative;
+ left: 37%;
+
+}
+</style>
+<div class="menus" style="width:100%;  text-align: center;">
+     
+       <li>&nbsp;&nbsp;&nbsp;<a href="javascript:goto_url('/HomePage.aspx')">LANG_TEXT!Menu_Ana_Sayfa!</a>&nbsp;&nbsp;&nbsp;</li>
+      <li onmouseover ="uretimSistemi()">&nbsp;&nbsp;&nbsp;LANG_TEXT!Menu_Üretim_Sistemi!
+            <ul style='width: 220px;'>
+               <div id="uretimSistemiTanim" style="display: none;"><li onmouseover ="select()" ><a href="#">LANG_TEXT!Menu_Tanım!</a>
+                <ul style='width: 220px;'>
+                <li id="35" style="display: none;"><a href="javascript:goto_url('/LineType/LineTypeList.aspx')">LANG_TEXT!Menu_Hat_Türü!</a></li>
+                <li id="29" style="display: none;"><a href="javascript:goto_url('/LineDefinition/LineDefinitionList.aspx')">LANG_TEXT!Menu_Hat_Tanıtma!</a></li>
+                <li id="96" style="display: none;"><a href="javascript:goto_url('/Shift/ShiftList.aspx')">LANG_TEXT!Menu_Vardiya_Tanımları!</a></li>
+                <li id="32" style="display: none;"><a href="javascript:goto_url('/LineShift/LineShiftList.aspx')">LANG_TEXT!Menu_Vardiya_Değiştirme!</a></li>
+                <li id="20" style="display: none;"><a href="javascript:goto_url('/Furnace/FurnaceList.aspx')">LANG_TEXT!Menu_Fırın_Tanıtma!</a></li>
+                <li id="98" style="display: none;"><a href="javascript:goto_url('/StopDesc/StopDescList.aspx')">LANG_TEXT!Menu_Faaliyet_Duruş_Tanımları!</a></li>
+                <li id="101" style="display: none;"><a href="javascript:goto_url('/SpecialStopDesc/SpecialStopDescList.aspx')">LANG_TEXT!Menu_Duruş_Özel_Tanımları!</a></li>
+              <!--  <li><a href="#">LANG_TEXT!Menu_Prog_Özel!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Kullanıcı_Bilgi!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Prompt_Özel!</a></li>
+                <li ><a href="javascript:goto_url('/StopDesc/StopDescList.aspx')">LANG_TEXT!Menu_Duruş_Tanım_Özel!</a></li>-->
+                </ul>
+                </li></div> 
+                
+             <!--   <li><a href="#">LANG_TEXT!Menu_Fay_Hareket!</a>
+                <ul style='width: 220px;'>
+                <li><a href="#">LANG_TEXT!Menu_Fay_Hareket_(Excel)!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Fay_Hareket!</a></li>
+                </ul>
+                </li>
+                -->
+             <div id="uretimSistemiGiris" style="display: none;">    <li onmouseover="select()"><a href="#">LANG_TEXT!Menu_Girişler!</a>
+                <ul style='width: 220px;'>
+                <li id="80" style="display: none;"><a href="javascript:goto_url('/ProductionWorkPlan/ProductionWorkPlanList.aspx')">LANG_TEXT!Menu_Üretim_İş_Planı_Oluşturma!</a></li>
+                <li id="70" style="display: none;"><a href="javascript:goto_url('/ProductionPreparation/ChangeDate.aspx')">LANG_TEXT!Menu_Üretim_Hazırlıkları_Tarih_Değiştirme!</a></li>
+                <li id="87" style="display: none;"><a href="javascript:goto_url('/SecondaryTransactionPreparationsInFactory/SecondaryTransactionPreparationsInFactoryList.aspx')">LANG_TEXT!Menu_Fabrika_İçi_İkincil_İşlem_Hazırlıkları!</a></li>
+                <li id="68" style="display: none;"><a href="javascript:goto_url('/ProductionPreparation/ProductionPreparationList.aspx')">LANG_TEXT!Menu_Üretim_Hazırlıkları!</a></li>
+                <li id="93" style="display: none;"><a href="javascript:goto_url('/SecondaryTransactionWorkPlanInFactory/SecondaryTransactionWorkPlanInFactoryList.aspx')">LANG_TEXT!Menu_Fabrika_İçi_İkincil_İşlem_Üretim_İş_Planı!</a></li>
+                <li id="105" style="display: none;"><a href="javascript:goto_url('/TemporaryProductDefinition/TemporaryProductDefinitionList.aspx')">LANG_TEXT!Menu_Geçici_Ürün_Tanıtma!</a></li>
+                <li id="57" style="display: none;"><a href="javascript:goto_url('/PalletMovementsCorrection/PalletMovementsCorrectionList.aspx')">LANG_TEXT!Menu_Palet_Hareketleri_Düzenleme!</a></li>
+                <li id="53" style="display: none;"><a href="javascript:goto_url('/PaletteCancel/PaletteCancelList.aspx')">LANG_TEXT!Menu_Palet_İptal!</a></li>
+                <li id="55" style="display: none;"><a href="javascript:goto_url('/PaletteStandards/PaletteStandardsList.aspx')">LANG_TEXT!Menu_Palet_Standartları!</a></li>
+                <li id="65" style="display: none;"><a href="javascript:goto_url('/ProductionPlanRevision/ProductionPlanRevisionList.aspx')">LANG_TEXT!Menu_Üretim_Planı_Revize!</a></li>
+                 <li id="19" style="display: none;"><a href="javascript:goto_url('/DCOrderPackageExcel/DCOrderPackageExcelCreate.aspx')">LANG_TEXT!Menu_DC_Sipariş_Ambalaj!</a></li>
+               <li id="24" style="display: none;"><a href="javascript:goto_url('/HourlyBoxCountsEntry/HourlyBoxCountsEntryList.aspx')">LANG_TEXT!Menu_Saatlik_Kutu_Sayımları_Girişi!</a></li>
+                 <li id="60" style="display: none;"><a href="javascript:goto_url('/PalletRouting/PalletRoutingList.aspx')">LANG_TEXT!Menu_Palet_Yönlendirme!</a></li>
+                             
+    <!--
+                <li><a href="#">LANG_TEXT!Menu_İşletme_Kod_Değiştirme_PE_<--_EP!</a></li>
+              
+                <li><a href="#">LANG_TEXT!Menu_Palet_İptali_(İkincil İşlem)!</a></li>
+    
+                <li><a href="#">LANG_TEXT!Menu_AYP_Palet!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Belirlenen_Adreslere_Rampa_Yapılması!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Ambar_WM_Palet_İşlem_–_PR!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Üretim_Siparişleri_Manuel_Alım!</a></li>
+         -->
+                </ul>
+                </li></div>
+             <!--   
+                <li><a href="#">LANG_TEXT!Menu_Özel_Programlar!</a>
+                <ul style='width: 220px;'>
+                <li><a href="#">LANG_TEXT!Menu_Forkliftçi_Palet_Etiket_(DC)!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Forkliftçi_Palet_Etiket!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Üretim_Barkod_Okuma!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Paletizer_Palet_Etiketleme_(PE)!</a></li>
+                </ul>
+                </li>
+                -->
+               <div id="uretimSistemiEtiket" style="display: none;">   <li onmouseover="select()"><a href="#">LANG_TEXT!Menu_Etiket!</a>
+                <ul style='width: 220px;'>
+                <li id="13" style="display: none;"><a href="javascript:goto_url('/BarcodePrint/BarcodePrintList.aspx')">LANG_TEXT!Menu_Barkod_Yazdırma!</a></li>
+                     
+             <!--   <li><a href="#">LANG_TEXT!Menu_Etiket_Dökümü_(Nihai)!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Etiket_Dökümü_-_DC!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Etiket_Dökümü_(Geçici)!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Etiket_Dökümü_(PR)!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Mükerrer_Etiket_Dökümü!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Barkod!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_AYP_Palet_Etiket_Dökümü!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Ambar_içi_Etiket!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_ITALYA_–_KALA_Etiket_Dökümü!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Adres_Etiket_Dökümü!</a></li>-->
+                </ul>
+                </li></div>
+                
+                <!--
+                <li><a href="#">LANG_TEXT!Menu_RF_Programlar!</a>
+                <ul style='width: 220px;'>
+                 <li><a href="#">LANG_TEXT!Menu_S.S._Okutma!</a></li>
+                 <li><a href="#">LANG_TEXT!Menu_K.K._Okutma!</a></li>
+                </ul>
+                </li>
+                
+                -->
+                <!--<li><a href="#">LANG_TEXT!Menu_Üretim_Gözlem!</a>
+                <ul >
+               
+                <li><a href="#">LANG_TEXT!Menu_Üretim_İs_Planı!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Alınmayan_Paletler_Gözlemi!</a></li>	
+                <li><a href="#">LANG_TEXT!Menu_Adres_Gözlemi!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Forkfilt_Gözlemi!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Palet_Standartları_Gözlemi!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Günlük_Üretim_Gözlemi!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Saatlik_Kutu_Sayımları!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Saatlik_Kutu_Sayımları_(Tüm İşletmeler)!</a></li>
+                </ul>
+                </li>-->
+                
+             <div id="uretimSistemiUretimRapor" style="display: none;">    <li onmouseover="select()"><a href="#">LANG_TEXT!Menu_Uretim_Rapor!</a>
+                <ul style='width: 220px;'>
+               <li id="77" style="display: none;"><a href="javascript:goto_url('/ProductionReport/DateProductionReportCreate.aspx')">LANG_TEXT!Menu_İki_Tarih_Arası_Üretim_Raporu!</a></li>
+                 <li id="79" style="display: none;"><a href="javascript:goto_url('/ProductionReport/ShiftProductionReportCreate.aspx')">LANG_TEXT!Menu_Vardiya_Karşılaştırmalı_Üretim_Raporu!</a></li>
+                <li id="78" style="display: none;"><a href="javascript:goto_url('/ProductionReport/PalletProductionReportCreate.aspx')">LANG_TEXT!Menu_Alınmayan_Paletler_Raporu!</a></li>
+                   
+                </ul>
+                </li></div>
+                
+              <!--  <li onmouseover="select()"><a href="#">LANG_TEXT!Menu_Excel!</a>
+                <ul style='width: 220px;'>
+                <li><a href="#">LANG_TEXT!Menu_Üretim_İş_Planı!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Detaylı_Üretim_Raporu!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_PURE_–_SAP_Teyit_Adet_Kıyaslama!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Üretim_Fazlası_Adet_Çıktısı!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Palet_Standartları!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Mamül_Ambar_Adres!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Mamul_Barkod_Okutma!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_S.Sonu_Raflı_Red_Paletler!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Üretim_Excel!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_DC_Sip._Ambalaj!</a></li>
+                </ul>
+                </li>-->
+            </ul>
+        </li>
+        
+        <li onmouseover="uretimKayiplari()">&nbsp;&nbsp;&nbsp;LANG_TEXT!Menu_Üretim_Kayıpları!
+         <ul style='width: 220px;'>
+           <div id="uretimKayiplariTanim" style="display: none;"> <li onmouseover="select()"><a href="#">LANG_TEXT!Menu_Tanım!</a>
+                <ul style='width: 220px;'>
+               <li id="46" style="display: none;"><a href="javascript:goto_url('/MoldStandards/MoldStandardsList.aspx')">LANG_TEXT!Menu_Kalıp_Standartları!</a></li>
+                <li id="49" style="display: none;"><a href="javascript:goto_url('/MoldStandardsHandleCount/MoldStandardsHandleCountList.aspx')">LANG_TEXT!Menu_Kalıp_Makina_Kol_Sayısı!</a></li>
+                <li id="26" style="display: none;"><a href="javascript:goto_url('/LineCoolingTime/LineCoolingTimeList.aspx')">LANG_TEXT!Menu_Hat_Soğutma_Süreleri!</a></li>
+                     
+ 
+                </ul>
+                </li></div>  
+                             
+      <!--         <li><a href="#">LANG_TEXT!Menu_Duruş_Tanımları!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Proses_Tanımları!</a></li>-->
+              <div id="uretimKayiplariGiris" style="display: none;"><li onmouseover="select()"><a href="#">LANG_TEXT!Menu_Girişler!</a>
+                <ul style='width: 220px;'>
+                <li id="61" style="display: none;"><a href="javascript:goto_url('/ProcessControlEntry/ProcessControlList.aspx')">LANG_TEXT!Menu_Proses_Kontrolü!</a></li>
+                <li id="7" style="display: none;"><a href="javascript:goto_url('/AgainSeparation/AgainSeparationEntryList.aspx')">LANG_TEXT!Menu_Yeniden_Ayırmalar!</a></li>
+                <li id="62" style="display: none;"><a href="javascript:goto_url('/ProductionChange/ProductionChangeList.aspx')">LANG_TEXT!Menu_İmalat_Değişimi!</a></li>
+                <li id="1" style="display: none;"><a href="javascript:goto_url('/ActivityEntry/ActivityEntryList.aspx')">LANG_TEXT!Menu_Faaliyet_ve_Proses_Girişleri!</a></li>
+                <li id="43" style="display: none;"><a href="javascript:goto_url('/MachineGramajTransferEntry/MachineGramajTransferEntryList.aspx')">LANG_TEXT!Menu_Makina_Gramaj_Devir_Girişi!</a></li>
+                <li id="22" style="display: none;"><a href="javascript:goto_url('/FurnaceTraction/FurnaceTractionList.aspx')">LANG_TEXT!Menu_Fırın_Çekiş!</a></li>
+               <!--<li><a href="#">LANG_TEXT!Menu_Ayp_(Altyapımcı)_Kalite_İşlemleri!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Fırın_Ölçümleri!</a></li>
+               <li><a href="#">LANG_TEXT!Menu_Okeyli_Ürün_Kontrolü!</a></li>-->
+               </ul>
+                </li></div>
+                
+              <div id="uretimKayiplariKaliteRapor" style="display: none;">   <li onmouseover="select()"><a href="#">LANG_TEXT!Menu_Kalite_Rapor!</a>
+                <ul style='width: 220px;'>
+                 <li id="86" style="display: none;"><a href="javascript:goto_url('/QualityReport/DailyQualityReportCreate.aspx')">LANG_TEXT!Menu_Günlük_Kalite_Raporu!</a></li>
+             <!--    <li id="85" style="display: none;"><a href="javascript:goto_url('/QualityReport/ProblemSourceBasedProblemAnalysisCreate.aspx')">Hata Kaynağı Bazında Hata Analizi (Matrix)</a></li>-->
+               
+          <!--      <li><a href="#">LANG_TEXT!Menu_Günlük_Kalite_Raporu_(Excel)!</a></li> 
+                <li><a href="#">LANG_TEXT!Menu_Günlük_Hat_Kayıp_Kalite_Kayıpları_(Matrix)!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Dönemsel_Kalite_Kayıpları!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Dönemsel_Yeniden_Ayırmalar_(Özet)!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Kalıp_Bazında_Hata_Analizi!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Hat_Bazında_Hata_Analizi!</a></li>
+               <li><a href="#">LANG_TEXT!Menu_İmalat_Raporu_(Günlük)!</a></li> -->
+                </ul>
+                </li></div>
+                
+               <div id="uretimKayiplariDurusRapor" style="display: none;">   <li onmouseover="select()"><a href="#">LANG_TEXT!Menu_Duruş_Rapor!</a>
+                <ul style='width: 220px;'>
+                <li id="104" style="display: none;"><a href="javascript:goto_url('/StopReport/CampaignMoldChangeCreate.aspx')">LANG_TEXT!Menu_Kampanya_Kalıp_Değişimi!</a></li>
+                <li id="103" style="display: none;"><a href="javascript:goto_url('/StopReport/DailyProductionReportCreate.aspx')">LANG_TEXT!Menu_İmalat_Raporu!</a></li>
+                  <li id="100" style="display: none;"><a href="javascript:goto_url('/StopReport/MoldChangeReportCreate.aspx')">LANG_TEXT!Menu_Kalıp_Değişim_Raporu!</a></li>
+               <li id="101" style="display: none;"><a href="javascript:goto_url('/StopReport/MachineStopTimesCreate.aspx')">LANG_TEXT!Menu_Makina_Duruş_Süreleri!</a></li>
+                 <li id="102" style="display: none;"><a href="javascript:goto_url('/StopReport/DeptBasedMachineStopTimesCreate.aspx')">LANG_TEXT!Menu_Departman_Bazında_Makina_Duruş_Süreleri!</a></li>
+                </ul>
+                </li></div>
+                
+             <!--   <li><a href="#">LANG_TEXT!Menu_Excel!</a>
+                <ul style='width: 220px;'>
+                <li><a href="#">LANG_TEXT!Menu_Altyapımcı_Kalite_Raporu!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Duruşlar_(Excel)!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Makina_Gramaj_Devir!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Dönemsel_Yeniden_Ayırma_(Excel)!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Kalıp_Değişimi_İlk_Verimi!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Fırın_Çekiş!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_İmalat_Özeti_(Günlük_–_Ürün Ayırlığı)!</a></li>
+                </ul>
+                </li> -->
+                
+         </ul>
+        </li>
+        
+      <!--  <li>&nbsp;&nbsp;&nbsp;LANG_TEXT!Menu_Sayim!
+        <ul style='width: 220px;'>
+                <li><a href="#">LANG_TEXT!Menu_Forkliftçi_Palet_Hareket!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Forkliftçi_Palet_Hareket_(Kucuk Ekran)!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Sayım_Tanımlama!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Sayım_İşlemleri!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Sayım_Gözlemi!</a></li>
+                <li><a href="#">LANG_TEXT!Menu_Sayım_Listesi!</a></li>
+        </ul>
+        </li>
+        
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:goto_url('Logout.aspx')">LANG_TEXT!Menu_Giris!</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+        <!--[!MENU_ITEM_GIRIS_CIKIS!]-->
+    </div>

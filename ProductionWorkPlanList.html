@@ -1,0 +1,242 @@
+<script type="text/javascript" src="/scripts/hat_turu.js"></script>
+<style type="text/css">
+.bootbox  {
+    position: relative!important;
+    width: 700px!important;
+    margin-left: 450px!important;
+    height: 300px!important;
+    margin-top: -800px !important;
+        
+ }
+    .modal {
+        max-width: 700px!important;
+        
+    }
+   .bootbox-body .modal-body .modal-footer {
+      max-width: 700px!important;
+      max-height: 300px !important;
+    }
+
+#div_popup_layer {
+	display:    none;
+	position: fixed; /*fixed; absolute; */
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+	z-index: 5000;
+	opacity: 0.0;	
+	background-color: #666 /*#399;*/
+}
+
+#div_popup_layer_dil_tanim {
+	display:    none;
+	position: fixed; /*fixed; absolute; */
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+	z-index: 5000;
+	opacity: 0.0;	
+	background-color: #666 /*#399;*/
+}
+
+#div_popup_window {
+	display:    none;
+	position: fixed; /*fixed; absolute; */
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	height:     700px;
+	width:      620px;/*660 700 980px;*/
+	z-index: 5100;
+	opacity: 1.0 !important;	
+	background-color: #fff;	
+    }
+
+#div_popup_window_dil_tanim {
+	display:    none;
+	position: fixed; /*fixed; absolute; */
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	height:     350px;
+	width:      620px;/*660 700 980px;*/
+	z-index: 5100;
+	opacity: 1.0 !important;	
+	background-color: #fff;	
+}
+
+#div_popup_content {
+	position: absolute; /*fixed; absolute; */
+	margin-left: 12px;
+	/*margin-left: auto;
+	margin-right: auto;*/
+	margin-top: 10px;
+	height:     600px;
+	width:      600px;/*640 680 960px;*/
+	/*z-index: 5100;
+	opacity: 1.0 !important;	
+	background-color: #fff *//*#399;*/
+}
+
+#div_popup_content_dil_tanim {
+	position: absolute; /*fixed; absolute; */
+	margin-left: 12px;
+	/*margin-left: auto;
+	margin-right: auto;*/
+	margin-top: 10px;
+	height:     300px;
+	width:      600px;/*640 680 960px;*/
+	/*z-index: 5100;
+	opacity: 1.0 !important;	
+	background-color: #fff *//*#399;*/
+}
+
+#div_close_button {
+	position:absolute;
+	margin-left: 578px;/*618 658 938px;*/
+	margin-top: 10px;
+    height:     32px;
+    width:      32px;
+	background-image: url('../images/close_button.png');
+	background-position: center top;
+	background-repeat: no-repeat;
+	cursor:pointer;
+	z-index: 5200;
+}
+
+#div_logo {
+	position:absolute;
+	margin-left: 3px;/*618 658 938px;*/
+	margin-top: 3px;
+    height:     59px;
+    width:      148px;
+	background-image: url('../images/logo.png');
+	background-position: center top;
+	background-repeat: no-repeat;
+	z-index: 5200;
+}
+
+</style>
+
+
+<style type="text/css">
+.datatable td {
+	white-space:nowrap;	
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+tr.header td {
+	background: #dce6f1; 
+}
+
+tr.data td{
+	white-space:nowrap;	
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;	
+	color: #666;
+	height: 12px;
+}
+
+table.datatable {
+	border-collapse: collapse;	
+}
+
+table.datatable tr:nth-of-type(odd) { 
+	background: #edf2f8; 
+}
+table.datatable tr:nth-of-type(even) { 
+	background: #fff; 
+}
+
+table.datatable td {
+	border: 1px solid #999;
+}
+
+.datatable {
+	line-height: 14px;
+}
+
+#sel_gslist {
+	width: 500px;	
+}
+
+.center-fix {
+    float: none;
+    margin: 0 auto;
+}
+
+#grid {
+    margin-left: auto;
+    margin-right: auto;
+    height: auto !important;
+}
+.k-grid  .k-grid-content {
+      min-height: 100px !important;
+    max-height: 150px !important;
+}
+
+.k-grid {
+    font-size: 10px;
+     font-weight: bold;
+}
+.k-grid td {
+   
+    line-height: 1em;
+
+}
+</style>
+
+
+
+
+ 
+<div class="row">
+    <div class="col-md-12 center-fix">
+        <div id="grid"
+                data-role="kendoGrid"
+                data-controllername="production-work-plan"
+                data-create="true"
+                data-create-url="/ProductionWorkPlan/ProductionWorkPlanCreate.aspx"
+                data-edit="true"
+                data-update-url="/ProductionWorkPlan/ProductionWorkPlanEdit.aspx"
+                data-delete="true"
+                data-remove-url="/dashboard/district/remove"
+                data-export="true">
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 center-fix">
+        <div id="grid-det"
+             data-role="kendoGrid"
+             data-controllername="production-sub-detail"
+             data-create="true"
+             data-create-url="/ProductionWorkPlanDet/ProductionWorkPlanDetCreate.aspx"
+             data-edit="true"
+             data-update-url="/ProductionWorkPlanDet/ProductionWorkPlanDetEdit.aspx"
+             data-delete="true"
+             data-remove-url="/dashboard/district/remove"
+             data-export="true">
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/assets/js/dashboard/production-work-plan-list.js"></script>
+<script type="text/javascript" src="/assets/js/dashboard/production-work-plan-det-list.js"></script>
+<style>
+    #grid table td {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+   
+    }
+</style>
+  
+<br /><br />
+ 
